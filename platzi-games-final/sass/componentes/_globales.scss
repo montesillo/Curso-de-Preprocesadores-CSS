@@ -28,6 +28,15 @@ $color-claro: #FFF;
 		font-weight: 700;
 	}
 }
+@function caculateRem($size){
+	$remSize: $size / 16px;
+	@return $remSize * 1rem;
+}
+@mixin font-size($size) {
+	font-size: $size;
+	font-size: caculateRem($size);
+	line-height: caculateRem($size) * 1.5;
+}
 
 
 // Funciones
@@ -48,6 +57,7 @@ body {
 	background-color: #F9FAFC;
 	color: $color-primario;
 	@include titulos($Fuente1);
+	@include font-size(18px);
 }
 
 main {
